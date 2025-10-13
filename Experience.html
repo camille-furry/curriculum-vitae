@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expériences</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<style>
+    .menu-toggle {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        pointer-events: auto;
+    }
+
+    .sidebar {
+        z-index: 999;
+    }
+
+    header {
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <header>
+        <h1>Mes Expériences</h1>
+    </header>
+    <nav class="sidebar" id="sidebar">
+            <ul style="margin-top: 50px;">
+            <li><a href="Index.html">Accueil</a></li>
+            <li><a href="Competences.html">Compétences</a></li>
+            <li><a href="Projets.html">Projets</a></li>
+            <li><a href="Experience.html">Expérience</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <main>
+        <div class="container">
+            <h2 style="text-align: center;">Expérience Professionnelle</h2>
+            <div style="text-align: center;">
+                <h3>Développeur Web - Entreprise XYZ</h3>
+                <p><strong>Durée :</strong> Janvier 2021 - Décembre 2022</p>
+                <p>Développement de sites web dynamiques et maintenance des applications existantes.</p>
+            </div>
+            <div style="text-align: center;">
+                <h3>Stagiaire en Informatique - Entreprise ABC</h3>
+                <p style="text-align: center;"><strong>Durée :</strong> Juin 2020 - Août 2020</p>
+                <p>Participation à la conception d'une application interne pour la gestion des stocks.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Timothée Dupont</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+            sidebar.style.transform = 'translateX(0)';
+            } else {
+            sidebar.style.transform = '';
+            }
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

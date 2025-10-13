@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétences</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<style>
+    .menu-toggle {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        pointer-events: auto;
+    }
+
+    .sidebar {
+        z-index: 999;
+    }
+
+    header {
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <header>
+        <h1>Mes Compétences</h1>
+    </header>
+    <nav class="sidebar" id="sidebar">
+        <ul style="margin-top: 50px;">
+            <li><a href="Index.html">Accueil</a></li>
+            <li><a href="Competences.html">Compétences</a></li>
+            <li><a href="Projets.html">Projets</a></li>
+            <li><a href="Experience.html">Expérience</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="container">
+        <section>
+            <h2>Compétences Techniques</h2>
+            <ul>
+                <li>Programmation : HTML, CSS, JavaScript, Python</li>
+                <li>Frameworks : React, Django</li>
+                <li>Base de données : MySQL, MongoDB</li>
+                <li>Outils : Git, Docker</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Compétences Personnelles</h2>
+            <ul>
+                <li>Travail en équipe</li>
+                <li>Résolution de problèmes</li>
+                <li>Gestion du temps</li>
+                <li>Adaptabilité</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+            sidebar.style.transform = 'translateX(0)';
+            } else {
+            sidebar.style.transform = '';
+            }
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+<footer>
+    <p style="text-align: center;">&copy; 2025 Camille dupont</p>
+</footer>
+</html>
