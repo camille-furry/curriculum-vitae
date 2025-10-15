@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compétences</title>
+    <title>Contacts</title>
     <link rel="stylesheet" href="Style.css">
     <link rel="icon" type="image/svg+xml" href="./155322.svg">
 </head>
@@ -12,7 +12,7 @@
         <h1>Mes Compétences</h1>
     </header>
     <nav class="sidebar" id="sidebar">
-        <ul style="margin-top: 50px;">
+        <ul style="margin-top: 50px; ">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="Competences.html">Compétences</a></li>
             <li><a href="Projets.html">Projets</a></li>
@@ -22,24 +22,23 @@
     </nav>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="container">
-        <section style="padding: 10px; border-radius: 12px; background-color: rgb(45, 45, 53);">
-            <h2>Compétences Techniques</h2>
-            <ul>
-                <li>Programmation : HTML, CSS, Java, Python</li>
-                <li>Librairies: JavaFX, Swing</li>
-                <li>Base de données : Access, PostgreSQL, JavaSQL</li>
-                <li>Outils : Gitlab, GitHub</li>
-                <li>IDE : IntelliJ IDEA, VSCode</li>
+        <section>
+            <h2>Contactez-moi</h2>
+            <ul style="padding: 30px; border-radius: 12px; background-color: rgb(45, 45, 53);">
+                <li>Email : <a href="mailto:camille.dupont5.etu@univ-lille.fr">camille.dupont5.etu@univ-lille.fr</a></li>
+                <li>Téléphone : <a href="tel:+33771061343">07 71 06 13 43</a></li>
+                <li>LinkedIn : <a href="https://www.linkedin.com/in/camille-dupont" target="_blank">linkedin.com/in/camille-dupont</a></li>
+                <li>Adresse : 274 rue roger Salengro, 59260 Lille</li>
             </ul>
-        </section>
-        <section style="margin-top: 50px; padding: 10px; border-radius: 12px; background-color: rgb(45, 45, 53);">
-            <h2>Compétences Personnelles</h2>
-            <ul>
-                <li>Travail en équipe</li>
-                <li>Résolution de bug</li>
-                <li>Méthode Scrum</li>
-                <li>Adaptabilité</li>
-            </ul>
+            <form action="mailto:camille.dupont5.etu@univ-lille.fr" method="post" enctype="text/plain" style="padding: 30px; border-radius: 12px; background-color: rgb(45, 45, 53);">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required><br>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message :</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <button type="submit">Envoyer</button>
+            </form>
         </section>
     </div>
     <script>

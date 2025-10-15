@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" type="image/svg+xml" href="./155322.svg">
+</head>
+<body>
+    <header>
+        <h1>Mes Projets</h1>
+    </header>
+    <nav class="sidebar" id="sidebar">
+        <ul style="margin-top: 50px;">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Competences.html">Compétences</a></li>
+            <li><a href="Projets.html">Projets</a></li>
+            <li><a href="Experience.html">Expérience</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="container">
+        <div id="project-slider" style="display: flex; align-items: center; margin-top: 200px;">
+            <button id="prev-project" style="font-size: 1.5em; background: none; border: none; cursor: pointer; position: absolute; left: 0; top: 50%; transform: translateY(-50%); margin-top: 50px; background-color: black; border-radius: 180px; margin-left: 10px;">&#8592;</button>
+            <div style="display: flex; flex-direction: column; align-items: center; margin-left: 60px; margin-right: 60px; padding: 30px; border-radius: 12px; background-color: rgb(45, 45, 53);">
+                <img id="project-image" src="images/Discord.png" alt="Capture d'écran du projet" style="max-width: 400px; max-height: 250px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <span id="project-description">Nous avons créé un site interne statique en HTML et CSS pour une entreprise que nous avions choisie, pour notre cas l'entreprise Discord. Le but de ce site était de permettre le covoiturage aux employés en choisissant de covoiturer avec une personne ou bien de proposer un covoiturage sur leur itinéraire.</span>
+            </div>
+            <button id="next-project" style="font-size: 1.5em; background: none; border: none; cursor: pointer; position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-top: 50px; background-color: black; border-radius: 180px; margin-right: 10px;">&#8594;</button>
+        </div>
+    </div>
+    <script>
+        const projects = [
+            {
+                image: "images/Discord.png",
+                description: "Nous avons créé un site interne statique en HTML et CSS pour une entreprise que nous avions choisie, pour notre cas l'entreprise Discord. Le but de ce site était de permettre le covoiturage aux employés en choisissant de covoiturer avec une personne ou bien de proposer un covoiturage sur leur itinéraire."
+            },
+            {
+                image: "images/Motus.png",
+                description: "Nous avons develloper en terminal java un jeu motus permettant au éléves d'apprendre l'orthographe de groupe de mots en s'amusant. Les profs ont également la possiblilité de rajouter des catégories ou mots a l'aide d'un tableur simple d'utilisation."
+            },
+            {
+                image: "images/Jumelage.png",
+                description: "Nous avons du créer une application servant a organiser des voyages a l’étranger pour des élèves de lycée ou université. Nous avons du faire en sorte qu’il y est des hôtes et des invité, ainsi qu’un système pour créer des paires automatiquement a l’aides de plusieurs caractéristique, régime alimentaire, allergie, ages, préférence de genre..."
+            }
+        ];
+        let currentProject = 0;
+        const desc = document.getElementById('project-description');
+        const img = document.getElementById('project-image');
+        function updateProjectDisplay() {
+            desc.textContent = projects[currentProject].description;
+            img.src = projects[currentProject].image;
+        }
+        document.getElementById('prev-project').onclick = function() {
+            currentProject = (currentProject - 1 + projects.length) % projects.length;
+            updateProjectDisplay();
+        };
+        document.getElementById('next-project').onclick = function() {
+            currentProject = (currentProject + 1) % projects.length;
+            updateProjectDisplay();
+        };
+        // Initial display
+        updateProjectDisplay();
+        let isAnimating = false;
+        function animateSlide(direction) {
+            if (isAnimating) return;
+            isAnimating = true;
+            const sliderContent = document.querySelector('#project-slider > div');
+            sliderContent.style.transition = 'transform 0.4s cubic-bezier(.68,-0.55,.27,1.55)';
+            sliderContent.style.transform = `translateX(${direction === 'left' ? '-100vw' : '100vw'})`;
+            setTimeout(() => {
+                sliderContent.style.transition = 'none';
+                sliderContent.style.transform = `translateX(${direction === 'left' ? '100vw' : '-100vw'})`;
+                updateProjectDisplay();
+                setTimeout(() => {
+                    sliderContent.style.transition = 'transform 0.4s cubic-bezier(.68,-0.55,.27,1.55)';
+                    sliderContent.style.transform = 'translateX(0)';
+                    setTimeout(() => {
+                        sliderContent.style.transition = '';
+                        isAnimating = false;
+                    }, 400);
+                }, 10);
+            }, 400);
+        }
+
+        document.getElementById('prev-project').onclick = function() {
+            if (isAnimating) return;
+            currentProject = (currentProject - 1 + projects.length) % projects.length;
+            animateSlide('left');
+        };
+        document.getElementById('next-project').onclick = function() {
+            if (isAnimating) return;
+            currentProject = (currentProject + 1) % projects.length;
+            animateSlide('right');
+        };
+    </script>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+            sidebar.style.transform = 'translateX(0)';
+            } else {
+            sidebar.style.transform = '';
+            }
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.classList.toggle('active');
+        }
+    </script>
+</body>
+<footer>
+    <img src="./155322.svg" alt="Logo" style="float: left; width: 50px; height: auto; margin-left: 10px;">
+    <p style="text-align: center;">&copy; 2025 Camille dupont</p>
+</footer>
+</html>

@@ -2,10 +2,11 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1e1e2f; /* Dark background */
     color: #e0e0e0; /* Light text */
     margin: 0;
     padding: 0;
+    background-image: url('./photo-1644088379091-d574269d422f.jpeg');
+    background-position: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,8 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 
 header, footer {
     background-color: #282846; /* Darker section background */
+    text-align: center;
     padding: 20px;
-    border-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     margin-bottom: 20px;
 }
 
@@ -117,12 +120,13 @@ footer {
     background-color: #282846;
     color: #e0e0e0;
     text-align: center;
-    padding: 10px 20px;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    border-top: 1px solid #3a3a5c;
+    margin-bottom: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 /* Add your styles here */
@@ -152,4 +156,8 @@ footer {
     border: none;
     padding: 10px;
     cursor: pointer;
+}
+
+.prev-project:hover, .next-project:hover {
+    background-color: #555;
 }
