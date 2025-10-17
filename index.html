@@ -11,10 +11,20 @@
     <header>
         <h1>Bienvenue sur mon CV Numérique</h1>
     </header>
+    <nav class="sidebar" id="sidebar">
+        <ul style="margin-top: 50px;">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="Competences.html">Compétences</a></li>
+            <li><a href="Projets.html">Projets</a></li>
+            <li><a href="Experience.html">Expérience</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <section style="display: flex; flex-direction: column; max-width: 800px; justify-content: center; align-items: center; text-align: center; padding: 20px; background-color: #312f2f; border-radius: 12px; margin-top: 100px;">
             <div style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
-                <img src="./155322.svg" alt="Photo de profil" style="width: 150px; height: 150px; border-radius: 50%;">
+                <img src="images/DUPONT portraits iut info-419.jpg" alt="Photo de profil" style="width: 100px; height: 100px; border-radius: 50%;">
                 <h2>Camille Dupont</h2>
             </div>
             <div>
@@ -22,7 +32,7 @@
             </div>
         </section>
     </div>
-    <main style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+    <main style="display: flex; justify-content: center; align-items: center; margin-top: 50px; margin-bottom: 200px;">
         <div style="text-align: center; display: flex; flex-direction: column; gap: 10px; background-color: rgba(128, 128, 128, 0.5); padding: 20px; border-radius: 15px;">
             <a href="Projets.html" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">Projets</a>
             <a href="Competences.html" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">Compétences</a>
@@ -34,5 +44,18 @@
         <img src="./155322.svg" alt="Logo" style="float: left; width: 50px; height: auto; margin-left: 10px;">
         <p style="text-align: center;">&copy; 2025 Camille dupont</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+            sidebar.style.transform = 'translateX(0)';
+            } else {
+            sidebar.style.transform = '';
+            }
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
